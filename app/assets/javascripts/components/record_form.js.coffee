@@ -13,17 +13,15 @@
   valid: ->
     @state.title && @state.amount && @state.date
 
-  handleSubmit: (e) ->
-    e.preventDefault()
+  handleSubmit: ->
     $.post '', { record: @state }, (data) =>
       @props.handleNewRecord(data)
-      @setState @getinitialState()
+      @setState @getInitialState()
     , 'JSON'
 
   render: ->
     form
       className: 'form-inline'
-      onSubmit: @handleSubmit
       div
         className: 'form-group'
         input
@@ -52,6 +50,7 @@
           value: @state.amount
           onChange: @handleChange
       button
+        onClick: @handleSubmit
         type: 'submit'
         className: 'btn btn-primary'
         disabled: !@valid()
