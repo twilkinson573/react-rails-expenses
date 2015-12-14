@@ -1,6 +1,5 @@
 @Record = React.createClass
   handleDelete: (e) ->
-    console.log('pork')
     e.preventDefault()
     $.ajax
       method: 'DELETE'
