@@ -13,7 +13,8 @@
   valid: ->
     @state.title && @state.amount && @state.date
 
-  handleSubmit: ->
+  handleSubmit: (e) ->
+    e.preventDefault()
     $.post '', { record: @state }, (data) =>
       @props.handleNewRecord(data)
       @setState @getInitialState()
