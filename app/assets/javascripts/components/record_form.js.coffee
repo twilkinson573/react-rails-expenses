@@ -15,7 +15,7 @@
 
   handleSubmit: (e) ->
     e.preventDefault()
-    $.post '', { record: @state }, (data) =>
+    $.post '/records', { record: @state }, (data) =>
       @props.handleNewRecord(data)
       @setState @getInitialState()
     , 'JSON'
@@ -56,5 +56,4 @@
         className: 'btn btn-primary'
         disabled: !@valid()
         'Create record'
-
 
